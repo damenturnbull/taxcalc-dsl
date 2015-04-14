@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html ng-app="taxRules">
+  <head>
+    <link rel="stylesheet" type="text/css" href="libs/bootstrap.min.css" />
+    <script type="text/javascript" src="libs/angular.min.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+  </head>
+  <body ng-controller="TaxController as tax">
+    <header>
+      <h1 class="text-center">Tax Rule DSL</h1>
+    </header>
+
+    <div class="list-group">
+      <!-- <div class="list-group-item" ng-repeat="rule in tax.rules"> -->
+        <!-- {{ rule.ruleId }} -->
+        <table>
+          <thead>
+            <tr>
+              <th>RuleID</th>
+              <th>Min Value</th>
+              <th>Max Value</th>
+              <th>Base tax</th>
+              <th>Plus cents</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>2</td>
+              <td>18201</td>
+              <td>37000</td>
+              <td>0</td>
+              <td>0.19</td>
+            </tr>            
+          </tbody>
+        </table>
+      <!-- </div> -->
+    </div>
+    
+  </body>
+</html>
