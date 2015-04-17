@@ -7,12 +7,19 @@
     <script type="text/javascript" src="app.js"></script>
   </head>
   <body ng-controller="TaxController as tax">
-    <header>
-      <h1 class="text-center"><!-- Tax Rule --> DSL</h1>
+
+    <header class="jumbotron">
+      <div class="container text-center">
+        <h1 class="">Tax Rule DSL</h1>
+        <p>Tax Calculator DSL tool. Allows the user to define tax brackets and calculate their income tax.</p>
+        <p><a class="btn btn-primary btn-lg" href="#" role="button">Start</a></p>
+      </div>
     </header>
 
     <section class="container">
+
       <div class="row">
+        <h2 class="text-center">Enter your tax rules:</h1>
         <div class="col-sm-10 col-sm-offset-1">
           <div class="list-group">
             <form name="ruleForm" ng-submit="ruleForm.$valid && tax.addRule()" novalidate>
@@ -61,6 +68,26 @@
           
         </div>
       </div>
+    </section>
+
+    <!-- Enter Your Income -->
+    <section class="row">
+      <br/>
+      <br/>
+      <br/>
+
+      <form>
+        <div class="col-sm-6">
+          <h2 class="text-right">Enter your Income:</h2>
+          <input type="text" class="form-control" placeholder="eg. $50,000" />
+        </div>
+
+        <div class="col-sm-6">
+          <h2 class="text-left">Tax Amount:</h1>
+            <p class="alert alert-info">$0</p>
+          </div>
+      </form>
+
     </section>
 
   </body>
