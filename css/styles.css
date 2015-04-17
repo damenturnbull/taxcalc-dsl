@@ -1,0 +1,35 @@
+table th, table td {
+  text-align: right;
+  height: 50px;
+}
+
+.table > tbody > tr > td {
+  padding-right: 20px;
+
+}
+
+.table > tfoot > tr > td {
+  padding-right: 20px;
+
+}
+
+.table > tfoot > tr > td.td-input {
+  padding-right: 8px;
+}
+
+input[type="text"] {
+  text-align: right;
+  margin-right: -8px;
+}
+
+.ng-invalid.ng-dirty {
+  border-color: red;
+}
+
+.ng-submitted .ng-invalid {
+  border-color: red;
+}
+
+.ng-valid.ng-dirty {
+  border-color: green;
+}
