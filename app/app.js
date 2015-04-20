@@ -1,8 +1,41 @@
 (function() {
 
-  angular.module('taxRules', ['ngMock'])
-  .controller('TaxController', function TaxController($scope){
-    $scope.rules = rules;
+  var rules = [{
+    ruleId:             1,
+    minValue:           0,
+    maxValue:           18200,
+    valuePerDollarOver: 0.19
+  }, {
+    ruleId:             2,
+    minValue:           18201,
+    maxValue:           37000,
+    valuePerDollarOver: 0.325
+  }, {
+    ruleId:             3,
+    minValue:           37001,
+    maxValue:           80000,
+    valuePerDollarOver: 0.37
+  }];  
+
+  angular.module('taxRules', [])
+  .controller('TaxController', ['$scope', function($scope) {
+
+    $scope.rules = [{
+      ruleId:             1,
+      minValue:           0,
+      maxValue:           18200,
+      valuePerDollarOver: 0.19
+    }, {
+      ruleId:             2,
+      minValue:           18201,
+      maxValue:           37000,
+      valuePerDollarOver: 0.325
+    }, {
+      ruleId:             3,
+      minValue:           37001,
+      maxValue:           80000,
+      valuePerDollarOver: 0.37
+    }];
 
     $scope.getBaseValue = function(value) {
       return value;
@@ -46,39 +79,6 @@
     $scope.getNextId();
     $scope.getNextMinValue();
     $scope.getNextMaxValue();
-  });
-
-  var rules = [{
-    ruleId:             1,
-    minValue:           0,
-    maxValue:           18200,
-    valuePerDollarOver: 0.19
-  }, {
-    ruleId:             2,
-    minValue:           18201,
-    maxValue:           37000,
-    valuePerDollarOver: 0.325
-  }, {
-    ruleId:             3,
-    minValue:           37001,
-    maxValue:           80000,
-    valuePerDollarOver: 0.37
-  }];
+  }]);
 
 })();
-
-
-// angular.module('app', ['ngMock'])
-// .controller('PasswordController', function PasswordController($scope) {
-//   $scope.password = '';
-//   $scope.grade = function() {
-//     var size = $scope.password.length;
-//     if (size > 8) {
-//       $scope.strength = 'strong';
-//     } else if (size > 3) {
-//       $scope.strength = 'medium';
-//     } else {
-//       $scope.strength = 'weak';
-//     }
-//   };
-// });
