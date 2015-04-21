@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html ng-app="taxRules">
+<html ng-app="TaxRules">
   <head>
     <link rel="stylesheet" type="text/css" href="libs/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="css/styles.css" />
   </head>
-  <body ng-controller="TaxController">
+  <body>
 
     <header class="jumbotron">
       <div class="container text-center">
@@ -21,11 +21,9 @@
         <h2 class="text-center">Enter your tax rules:</h1>
         <div class="col-sm-10 col-sm-offset-1">
           <div class="list-group">
-            <form name="ruleForm" ng-submit="ruleForm.$valid && addRule()" novalidate>
               <table class="table">
                 <thead>
                   <tr>
-                    <th>RuleID</th>
                     <th>Min Value</th>
                     <th>Max Value</th>
                     <th>Base tax</th>
@@ -33,9 +31,8 @@
                     <th>&nbsp;</th>
                   </tr>
                 </thead>
-                <tbody>
+                <tbody ng-controller="TaxController">
                   <tr ng-repeat="rule in rules">
-                    <td>{{ rule.ruleId }}</td>
                     <td>{{ rule.minValue | currency:$:0 }}</td>
                     <td>{{ rule.maxValue | currency:$:0 }}</td>
                     <td>$50</td>
@@ -44,25 +41,25 @@
                   </tr>            
                 </tbody>
                 <tfoot>
-                  <tr>
-                    <td ng-model="ruleId_next">{{ ruleId_next }}</td>
-                    <td class="td-input">
-                      <input type="text" class="form-control" ng-model="minValue" required/>
-                    </td>
-                    <td class="td-input">
-                      <input type="text" class="form-control" ng-model="maxValue" required/>
-                    </td>
-                    <td>$0</td>
-                    <td class="td-input">
-                      <input type="text" class="form-control" ng-model="valuePerDollarOver" required>
-                    </td>
-                    <td>
-                      <input type="submit" class="btn btn-primary" value="Add">
-                    </td>
-                  </tr>            
+                  <form name="ruleForm" ng-submit="ruleForm.$valid && addRule()" novalidate>
+                    <tr>
+                      <td class="td-input">
+                        <input type="text" class="form-control" ng-model="minValue" required/>
+                      </td>
+                      <td class="td-input">
+                        <input type="text" class="form-control" ng-model="maxValue" required/>
+                      </td>
+                      <td>$0</td>
+                      <td class="td-input">
+                        <input type="text" class="form-control" ng-model="valuePerDollarOver" required>
+                      </td>
+                      <td>
+                        <input type="submit" class="btn btn-primary" value="Add">
+                      </td>
+                    </tr>            
+                  </form>
                 </tfoot>
               </table>
-            </form>
           </div>
           
         </div>
@@ -94,8 +91,11 @@
   <script type="text/javascript" src="libs/angular-mocks.js"></script>
 
   <!-- Modules -->
-  <script type="text/javascript" src="app/modules/app.js"></script>
+  <script type="text/javascript" src="js/app.js"></script>
   
   <!-- Controllers -->
-  <script type="text/javascript" src="app/controllers/taxcontroller.js"></script>
+  <script type="text/javascript" src="js/controllers/TaxController.js"></script>
+  
+  <!-- Services -->
+  <script type="text/javascript" src="js/services/rules.js"></script>
 </html>

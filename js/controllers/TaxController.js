@@ -1,29 +1,15 @@
-app.controller('TaxController', ['$scope', function($scope) {
+app.controller('TaxController', ['$scope', 'rules', function($scope, rules) {
 
-  $scope.rules = [{
-    ruleId:             1,
-    minValue:           0,
-    maxValue:           18200,
-    valuePerDollarOver: 0.19
-  }, {
-    ruleId:             2,
-    minValue:           18201,
-    maxValue:           37000,
-    valuePerDollarOver: 0.325
-  }, {
-    ruleId:             3,
-    minValue:           37001,
-    maxValue:           80000,
-    valuePerDollarOver: 0.37
-  }];
+  $scope.rules = rules;
+  $scope.minValue = null;
+  $scope.maxValue = null;
 
   $scope.getBaseValue = function(value) {
     return value;
   };
 
   $scope.addRule = function() {
-    var rule = 
-    {
+    var rule = {
       ruleId:             $scope.ruleId_next, 
       minValue:           $scope.minValue, 
       maxValue:           $scope.maxValue, 
@@ -32,13 +18,9 @@ app.controller('TaxController', ['$scope', function($scope) {
 
     $scope.rules.push(rule);
     // Reset next id
-    $scope.ruleId_next = $scope.minValue = $scope.maxValue = $scope.valuePerDollarOver = null;
+    $scope.minValue = $scope.maxValue = $scope.valuePerDollarOver = null;
     $scope.getNextMinValue();
     $scope.getNextId();
-  };
-
-  $scope.getNextId = function() {
-    $scope.ruleId_next = $scope.rules.length + 1;
   };
 
   $scope.getNextMinValue = function() {
@@ -57,7 +39,6 @@ app.controller('TaxController', ['$scope', function($scope) {
   }
 
   // Initiate
-  $scope.getNextId();
   $scope.getNextMinValue();
   $scope.getNextMaxValue();
 }]);
